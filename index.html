@@ -6,48 +6,99 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
         <link rel="stylesheet" href="style.css" />
+        <script src="https://kit.fontawesome.com/144c0e3213.js" crossorigin="anonymous"></script>
         <title>Document</title>
     </head>
   
     <body>
         <header>
-            <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
+            <nav class="navbar navbar-dark bg-dark mb-10px">
+                <a class="navbar-brand" href="#">&lt JeMO &gt</a>
+                <a href="#">About us</a>
+                <a href="#">Notifications</a>
+                <a href="#">Settings</a>
             </nav>
         </header>
         <div class="container d-flex" id="panel">
-        <div class="container" id="admin_panel">
-            <div class="card">
-                <div class="card-body m-1">
-                    <ul class="functions">
-                        <li>Add New Task</li>
-                        <li>Manage Teams</li>
-                        <li>Manage Profile / Settings</li>
-                        <li>About Us</li>
-                    </ul>
+            <div class="container" id="admin_panel">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="functions">
+                            <li><a href="#">Add New Task</a></li>
+                            <li> <a href="#">Manage Teams</a></li>
+                            <li><a href="#">Manage Profile / Settings</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown m-5">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tags
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Project Bitman</a>
+                        <a class="dropdown-item" href="#">Admin</a>
+                        <a class="dropdown-item" href="#">Create New</a>
+                    </div>
                 </div>
             </div>
-            <div class="dropdown m-5">
-            <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-            >
-                Tags
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Project Bitman</a>
-                <a class="dropdown-item" href="#">Admin</a>
-                <a class="dropdown-item" href="#">Create New</a>
+            <div class="container" id="planner_panel">
+                <div><button class="m-5">Add Task</button></div>
+                <div> 
+                    <h2><a href="#"><span class="fas fa-backward m-3"></span></a>Today<a href="#"><span class="fas fa-forward m-3"></span></a></h2>
+                </div>
+                <div>[date]</div> 
+                <button
+                    class="btn btn-secondary dropdown-toggle m-5"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Assigned to Me</a>
+                    <a class="dropdown-item" href="#">Assigned to Others</a>
+                    <a class="dropdown-item" href="#">Due date</a>
+                    <a class="dropdown-item" href="#">Status</a>
+                    <a class="dropdown-item" href="#">Clear all</a>
+                </div>
+                <div class="container p-5">
+                    <table class="table">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">TO DO:</th>
+                            <th scope="col">Tag</th>
+                            <th scope="col">Assigned to</th>
+                            <th scope="col">Due date</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row"><span class="fas fa-pen"></span><a>[task]</a></th>
+                            <td>[tag]</td>
+                            <td>[teamMember]</td>
+                            <td>[dueDate]</td>
+                            <td>[status]</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="fas fa-pen"></span><a>[task]</a></th>
+                            <td>[tag]</td>
+                            <td>[teamMember]</td>
+                            <td>[dueDate]</td>
+                            <td>[status]</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <button class="m-5">View tasks for week</button>
+                    <button class="m-5">View all upcoming tasks</button>
+                </div>
             </div>
-            </div>
-        </div>
-        <div class="container" id="planner_panel">
-            <button class="m-5">Add Task</button>
-        </div>
         </div>
 
         <script
@@ -69,5 +120,5 @@
         ></script>
 
     </body>
-
+    <footer>&copy; JeMo Pty Limited 2020</footer>
 </html>
