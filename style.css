@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+  
+body {
+    margin: 0;
+}
+   
+.container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}   
+
+#panel {
+    min-width: 100%;
+}
+  
+#admin_panel {
+    min-height: 100%vh
+    background-color: red;
+    flex-basis: 33%;
+}
+  
+#planner_panel {
+    min-height: 100vh;
+    background-color: blue;
+}
+  
+.card {
+    margin: 15px 10px 15px 10px;
+}
