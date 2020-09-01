@@ -35,12 +35,8 @@ h2 > a > span {
     color: rgb(30, 59, 49);
 }
 
-.card {
+#admin_card {
     margin: 15px 10px 15px 10px;
-}
-
-#card_layout {
-    width: 18rem;
 }
 
 /* Need to fix - font-size not working */
@@ -48,7 +44,23 @@ h2 > a > span {
     font-size: 1px;
 }
 
-.card-text, .list-group-flush {
+.card_layout {
+    width: 18rem;
+    margin: 10px;
+    padding: 0px;
+}
+
+/* If we fix the height of the card title/description, suggest we have a max character limit on these items in the new task form (to avoid text overflowing in browser) */
+.card_title {
+    height: 6rem;
+}
+
+.card_description {
+    font-style: italic;
+    height: 8rem;
+}
+
+.list-group-flush {
     text-align: left;
 }
 

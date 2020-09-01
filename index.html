@@ -21,7 +21,7 @@
         </header>
         <div class="container d-flex" id="panel">
             <div class="container" id="admin_panel">
-                <div class="card">
+                <div class="card" id="admin_card">
                     <div class="card-body">
                         <ul class="functions">
                             <li><a href="#">Add New Task</a></li>
@@ -65,14 +65,14 @@
                     <a class="dropdown-item" href="#">Status</a>
                     <a class="dropdown-item" href="#">Clear all</a>
                 </div>
-
-                    <div class="card" id="card_layout">
-                        <div class="header bg-info pt-2 mb-0"><em>Admin</em></div>
-                        <div class="card-body bg-info">
+                <div class="list-group d-flex justify-content-center flex-wrap flex-md-row">
+                    <div class="list-group-item card card_layout">
+                        <div class="header bg-info pt-2 mb-0">Admin</div>
+                        <div class="card-body bg-info card_title">
                             <h5 class="card-title">Book welcome lunch for JWD</h5>
-                            <p class="card-text">Call Julio's to book lunch for 6 people at 12pm on 31 October 2010.</p>      
                         </div>
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item card_description">Call Julio's to book lunch for 6 people at 12pm on 31 October 2010.</li>
                             <li class="list-group-item"><strong>Assigned to</strong>: Monali</li>
                             <li class="list-group-item"><strong>Due date</strong>: 15 October 2020</li>
                             <li class="list-group-item"><strong>Status</strong>: TO DO</li>
@@ -80,39 +80,79 @@
                         <div class="card-body d-flex justify-content-around">
                             <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
                             <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-trash""></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
+                        </div>
+                    </div>  
+                    <div class="list-group-item card card_layout">
+                        <div class="header bg-warning pt-2 mb-0">Project Bitman</div>
+                        <div class="card-body bg-warning card_title">
+                            <h5 class="card-title">Implement HTML structure for task planner app</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item card_description">Create index.html to implement main app elements from wireframe.</li>
+                            <li class="list-group-item"><strong>Assigned to</strong>: Shane</li>
+                            <li class="list-group-item"><strong>Due date</strong>: 1 September 2020</li>
+                            <li class="list-group-item"><strong>Status</strong>: Done</li>
+                        </ul>
+                        <div class="card-body d-flex justify-content-around">
+                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
                         </div>
                     </div> 
+                    <div class="list-group-item card card_layout">
+                        <div class="header bg-warning pt-2 mb-0">Project Bitman</div>
+                        <div class="card-body bg-warning card_title">
+                            <h5 class="card-title">Style index.html</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item card_description">Create styles.css and incorporate Bootstrap components to html to reflect wireframe.</li>
+                            <li class="list-group-item"><strong>Assigned to</strong>: Monali, Shane, Jen</li>
+                            <li class="list-group-item"><strong>Due date</strong>: 1 September 2020</li>
+                            <li class="list-group-item"><strong>Status</strong>: In progress</li>
+                        </ul>
+                        <div class="card-body d-flex justify-content-around">
+                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
+                        </div>
+                    </div> 
+                    <div class="list-group-item card card_layout">
+                        <div class="header bg-danger pt-2 mb-0">Project Robin</div>
+                        <div class="card-body bg-danger card_title">
+                            <h5 class="card-title">Write "About us" section for company website</h5>   
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item card_description">Write new "About us" section. Include: company's mission, team member profiles and social media links.</li>
+                            <li class="list-group-item"><strong>Assigned to</strong>: New JWD</li>
+                            <li class="list-group-item"><strong>Due date</strong>: 15 September 2020</li>
+                            <li class="list-group-item"><strong>Status</strong>: TO DO</li>
+                        </ul>
+                        <div class="card-body d-flex justify-content-around">
+                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
+                        </div>
+                    </div>
+                    <div class="list-group-item card card_layout">
+                        <div class="header bg-danger pt-2 mb-0">Project Robin</div>
+                        <div class="card-body bg-danger card_title">
+                            <h5 class="card-title">Update company website navbar</h5> 
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item card_description">Add extra navbar link to new "About us" section.</li>
+                            <li class="list-group-item"><strong>Assigned to</strong>: New JWD</li>
+                            <li class="list-group-item"><strong>Due date</strong>: 15 September 2020</li>
+                            <li class="list-group-item"><strong>Status</strong>: TO DO</li>
+                        </ul>
+                        <div class="card-body d-flex justify-content-around">
+                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- <div class="container p-5">
-                    <table class="table">
-                        <thead class="thead-light">
-                        <tr>
-                            <th scope="col">TO DO:</th>
-                            <th scope="col">Tag</th>
-                            <th scope="col">Assigned to</th>
-                            <th scope="col">Due date</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"><span class="fas fa-pen"></span><a>[task]</a></th>
-                            <td>[tag]</td>
-                            <td>[teamMember]</td>
-                            <td>[dueDate]</td>
-                            <td>[status]</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><span class="fas fa-pen"></span><a>[task]</a></th>
-                            <td>[tag]</td>
-                            <td>[teamMember]</td>
-                            <td>[dueDate]</td>
-                            <td>[status]</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div> -->
                 <div>
                     <button class="m-5">View tasks for week</button>
                     <button class="m-5">View all upcoming tasks</button>
