@@ -39,6 +39,19 @@ h2 > a > span {
     margin: 15px 10px 15px 10px;
 }
 
+#card_layout {
+    width: 18rem;
+}
+
+/* Need to fix - font-size not working */
+.card-header {
+    font-size: 1px;
+}
+
+.card-text, .list-group-flush {
+    text-align: left;
+}
+
 footer {
     padding: 15px;
     text-align: center;
