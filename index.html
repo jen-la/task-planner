@@ -1,178 +1,367 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="https://kit.fontawesome.com/144c0e3213.js" crossorigin="anonymous"></script>
-        <title>Document</title>
-    </head>
-  
-    <body>
-        <header>
-            <nav class="navbar navbar-dark bg-dark mb-10px">
-                <a class="navbar-brand" href="#">&lt JeMO &gt</a>
-                <a href="#">About us</a>
-                <a href="#">Notifications</a>
-                <a href="#">Settings</a>
-            </nav>
-        </header>
-        <div class="container d-flex" id="panel">
-            <div class="container" id="admin_panel">
-                <div class="card" id="admin_card">
-                    <div class="card-body">
-                        <ul class="functions">
-                            <li><a href="#">Add New Task</a></li>
-                            <li> <a href="#">Manage Teams</a></li>
-                            <li><a href="#">Manage Profile / Settings</a></li>
-                            <li><a href="#">About Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dropdown m-5">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tags
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Project Bitman</a>
-                        <a class="dropdown-item" href="#">Admin</a>
-                        <a class="dropdown-item" href="#">Create New</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container" id="planner_panel">
-                <div><button class="m-5">Add Task</button></div>
-                <div> 
-                    <h2><a href="#"><span class="fas fa-backward m-3"></span></a>Today<a href="#"><span class="fas fa-forward m-3"></span></a></h2>
-                </div>
-                <div>[date]</div> 
-                <button
-                    class="btn btn-secondary dropdown-toggle m-5"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >
-                    Filter
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Assigned to Me</a>
-                    <a class="dropdown-item" href="#">Assigned to Others</a>
-                    <a class="dropdown-item" href="#">Due date</a>
-                    <a class="dropdown-item" href="#">Status</a>
-                    <a class="dropdown-item" href="#">Clear all</a>
-                </div>
-                <div class="list-group d-flex flex-wrap flex-sm-row ml-5">
-                    <div class="list-group-item card card_layout">
-                        <div class="card-header bg-success">DONE</div>
-                        <div class="card-body bg-success card_title">
-                            <h5 class="card-title">Implement HTML structure for task planner app</h5>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item card_description">Create index.html to implement main app elements from wireframe.</li>
-                            <li class="list-group-item"><strong>Assigned to</strong>: Shane</li>
-                            <li class="list-group-item"><strong>Due date</strong>: 01/09/2020</li>
-                        </ul>
-                        <div class="card-body d-flex justify-content-around">
-                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
-                        </div>
-                    </div> 
-                    <div class="list-group-item card card_layout">
-                        <div class="card-header bg-primary">REVIEW</div>
-                        <div class="card-body bg-primary card_title">
-                            <h5 class="card-title">Style index.html</h5>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item card_description">Create styles.css and incorporate Bootstrap components to html to reflect wireframe.</li>
-                            <li class="list-group-item"><strong>Assigned to</strong>: Monali, Shane, Jen</li>
-                            <li class="list-group-item"><strong>Due date</strong>: 01/09/2020</li>
-                        </ul>
-                        <div class="card-body d-flex justify-content-around">
-                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
-                        </div>
-                    </div> 
-                    <div class="list-group-item card card_layout">
-                        <div class="card-header bg-info">IN PROGRESS</div>
-                        <div class="card-body bg-info card_title">
-                            <h5 class="card-title">Write "About us" section for company website</h5>   
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item card_description">Write new "About us" section. Include: company's mission, team member profiles and social media links.</li>
-                            <li class="list-group-item"><strong>Assigned to</strong>: New JWD</li>
-                            <li class="list-group-item"><strong>Due date</strong>: 04/09/2020</li>
-                        </ul>
-                        <div class="card-body d-flex justify-content-around">
-                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
-                        </div>
-                    </div>
-                    <div class="list-group-item card card_layout">
-                        <div class="card-header bg-danger">TO DO</div>
-                        <div class="card-body bg-danger card_title">
-                            <h5 class="card-title">Update company website navbar</h5> 
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item card_description">Add extra navbar link to new "About us" section.</li>
-                            <li class="list-group-item"><strong>Assigned to</strong>: New JWD</li>
-                            <li class="list-group-item"><strong>Due date</strong>: 05/09/2020</li>
-                        </ul>
-                        <div class="card-body d-flex justify-content-around">
-                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
-                        </div>
-                    </div>
-                    <div class="list-group-item card card_layout">
-                        <div class="card-header bg-danger">TO DO</div>
-                        <div class="card-body bg-danger card_title">
-                            <h5 class="card-title">Book welcome lunch for JWD</h5>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item card_description">Call Julio's to book lunch for 6 people at 12pm on 31 October 2010.</li>
-                            <li class="list-group-item"><strong>Assigned to</strong>: Monali</li>
-                            <li class="list-group-item"><strong>Due date</strong>: 15/10/2020</li>
-                        </ul>
-                        <div class="card-body d-flex justify-content-around">
-                            <a href="#" class="card-link"><span class="far fa-check-square"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-                            <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
-                        </div>
-                    </div>  
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/144c0e3213.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>JenMo Task Planner</title>
+  </head>
 
-                <div>
-                    <button class="m-5">View tasks for week</button>
-                    <button class="m-5">View all upcoming tasks</button>
-                </div>
-            </div>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark mb-10px">
+        <a class="navbar-brand" href="#">&lt JeMO &gt</a>
+        <a href="#">About us</a>
+        <a href="#">Notifications</a>
+        <a href="#">Settings</a>
+      </nav>
+    </header>
+    <div class="container d-flex" id="panel">
+      <div class="container" id="admin_panel">
+        <div class="card" id="admin_card">
+          <div class="card-body">
+            <ul class="functions">
+              <li><a href="#">Add New Task</a></li>
+              <li><a href="#">Manage Teams</a></li>
+              <li><a href="#">Manage Profile / Settings</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="dropdown m-5">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Tags
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Project Bitman</a>
+            <a class="dropdown-item" href="#">Admin</a>
+            <a class="dropdown-item" href="#">Create New</a>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="planner_panel">
+        <div>
+          <button
+            class="m-5"
+            href="#"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#modalAddTask"
+          >
+            Add Task
+          </button>
         </div>
 
-        <script
-        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"
-        ></script>
+        <div id="modalAddTask" class="modal" role="dialog">
+          <div class="row">
+            <div class="container d-flex">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
 
-        <script
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"
-        ></script>
+                    <h5 class="card-title">Add New Task</h5>
+                  </div>
+                  <form>
+                    <div class="form-group">
+                      <div class="form m-2">
+                        <label for="addTaskName">Task Name: </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="addTaskName"
+                          placeholder="enter the task name"
+                          required
+                        />
+                      </div>
 
-        <script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"
-        ></script>
+                      <div class="form m-2">
+                        <label for="addTaskDescription">Description: </label>
+                        <textarea
+                          class="form-control"
+                          id="addTaskDescription"
+                          placeholder="enter a description"
+                          required
+                        >
+                        </textarea>
+                      </div>
 
-    </body>
-    <footer>&copy; JeMo Pty Limited 2020</footer>
+                      <div class="form-inline m-2">
+                        <label for="addDueDate">Due Date: </label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="addDueDate"
+                          required
+                        />
+                      </div>
+                      <div class="form-inline m-2">
+                        <label for="addTaskStatus">Status: </label>
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          id="addTaskStatus"
+                          data-toggle="dropdown"
+                          aria-haspupup="true"
+                          aria-expanded="false"
+                        >
+                          Update
+                        </button>
+                        <div
+                          class="dropdown-menu"
+                          aria-labelledby="addTaskStatus"
+                        >
+                          <a class="dropdown-item" href="#">To Do</a>
+                          <a class="dropdown-item" href="#">In Progress</a>
+                          <a class="dropdown-item" href="#">For Review</a>
+                          <a class="dropdown-item" href="#">Completed</a>
+                        </div>
+                      </div>
+
+                      <div class="form-inline m-2 justify-content-center">
+                        <button type="button" class="btn btn-success m-2">
+                          Add Task
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-danger m-2"
+                          data-dismiss="modal"
+                        >
+                          Exit
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2>
+            <a href="#"><span class="fas fa-backward m-3"></span></a>Today<a
+              href="#"
+              ><span class="fas fa-forward m-3"></span
+            ></a>
+          </h2>
+        </div>
+        <div>[date]</div>
+        <button
+          class="btn btn-secondary drowdown-toggle m-5"
+          type="button"
+          id="dropDownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Filter
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropwdown-item" href="#">Assigned To Me</a>
+          <a class="dropwdown-item" href="#">Assigned To Others</a>
+          <a class="dropwdown-item" href="#">Assigned To Due Date</a>
+          <a class="dropwdown-item" href="#">Assigned To Status</a>
+          <a class="dropwdown-item" href="#">Assigned To Clear</a>
+        </div>
+        <div
+          class="list-group d-flex justify-content-center flex-wrap flex-md-row"
+        >
+          <div class="list-group-item card card_layout">
+            <div class="header bg-info pt-2 mb-0">Admin</div>
+            <div class="card-body bg-info card_title">
+              <h5 class="card-title">Book welcome lunch for JWD</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item card_description">
+                Call Julio's to book lunch for 6 people at 12pm on 31 October
+                2010.
+              </li>
+              <li class="list-group-item">
+                <strong>Assigned to</strong>: Monali
+              </li>
+              <li class="list-group-item">
+                <strong>Due date</strong>: 15 October 2020
+              </li>
+              <li class="list-group-item"><strong>Status</strong>: TO DO</li>
+            </ul>
+            <div class="card-body d-flex justify-content-around">
+              <a href="#" class="card-link"
+                ><span class="far fa-check-square"></span
+              ></a>
+              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+              <a href="#" class="card-link"
+                ><span class="fas fa-trash"></span
+              ></a>
+            </div>
+          </div>
+          <div class="list-group-item card card_layout">
+            <div class="header bg-warning pt-2 mb-0">Project Bitman</div>
+            <div class="card-body bg-warning card_title">
+              <h5 class="card-title">
+                Implement HTML structure for task planner app
+              </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item card_description">
+                Create index.html to implement main app elements from wireframe.
+              </li>
+              <li class="list-group-item">
+                <strong>Assigned to</strong>: Shane
+              </li>
+              <li class="list-group-item">
+                <strong>Due date</strong>: 1 September 2020
+              </li>
+              <li class="list-group-item"><strong>Status</strong>: Done</li>
+            </ul>
+            <div class="card-body d-flex justify-content-around">
+              <a href="#" class="card-link"
+                ><span class="far fa-check-square"></span
+              ></a>
+              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+              <a href="#" class="card-link"
+                ><span class="fas fa-trash"></span
+              ></a>
+            </div>
+          </div>
+          <div class="list-group-item card card_layout">
+            <div class="header bg-warning pt-2 mb-0">Project Bitman</div>
+            <div class="card-body bg-warning card_title">
+              <h5 class="card-title">Style index.html</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item card_description">
+                Create styles.css and incorporate Bootstrap components to html
+                to reflect wireframe.
+              </li>
+              <li class="list-group-item">
+                <strong>Assigned to</strong>: Monali, Shane, Jen
+              </li>
+              <li class="list-group-item">
+                <strong>Due date</strong>: 1 September 2020
+              </li>
+              <li class="list-group-item">
+                <strong>Status</strong>: In progress
+              </li>
+            </ul>
+            <div class="card-body d-flex justify-content-around">
+              <a href="#" class="card-link"
+                ><span class="far fa-check-square"></span
+              ></a>
+              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+              <a href="#" class="card-link"
+                ><span class="fas fa-trash"></span
+              ></a>
+            </div>
+          </div>
+          <div class="list-group-item card card_layout">
+            <div class="header bg-danger pt-2 mb-0">Project Robin</div>
+            <div class="card-body bg-danger card_title">
+              <h5 class="card-title">
+                Write "About us" section for company website
+              </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item card_description">
+                Write new "About us" section. Include: company's mission, team
+                member profiles and social media links.
+              </li>
+              <li class="list-group-item">
+                <strong>Assigned to</strong>: New JWD
+              </li>
+              <li class="list-group-item">
+                <strong>Due date</strong>: 15 September 2020
+              </li>
+              <li class="list-group-item"><strong>Status</strong>: TO DO</li>
+            </ul>
+            <div class="card-body d-flex justify-content-around">
+              <a href="#" class="card-link"
+                ><span class="far fa-check-square"></span
+              ></a>
+              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+              <a href="#" class="card-link"
+                ><span class="fas fa-trash"></span
+              ></a>
+            </div>
+          </div>
+          <div class="list-group-item card card_layout">
+            <div class="header bg-danger pt-2 mb-0">Project Robin</div>
+            <div class="card-body bg-danger card_title">
+              <h5 class="card-title">Update company website navbar</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item card_description">
+                Add extra navbar link to new "About us" section.
+              </li>
+              <li class="list-group-item">
+                <strong>Assigned to</strong>: New JWD
+              </li>
+              <li class="list-group-item">
+                <strong>Due date</strong>: 15 September 2020
+              </li>
+              <li class="list-group-item"><strong>Status</strong>: TO DO</li>
+            </ul>
+            <div class="card-body d-flex justify-content-around">
+              <a href="#" class="card-link"
+                ><span class="far fa-check-square"></span
+              ></a>
+              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
+              <a href="#" class="card-link"
+                ><span class="fas fa-trash"></span
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button class="m-5">View tasks for week</button>
+          <button class="m-5">View all upcoming tasks</button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <footer>&copy; JeMo Pty Limited 2020</footer>
 </html>
