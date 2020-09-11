@@ -8,13 +8,12 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/144c0e3213.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
     <title>JenMo Task Planner</title>
   </head>
 
@@ -87,42 +86,54 @@
 
                     <h5 class="card-title">Add New Task</h5>
                   </div>
-                  <form>
+                  <form id="validateAddNewTaskForm" novalidation>
                     <div class="form-group">
                       <div class="form m-2">
                         <label for="addTaskName">Task Name: </label>
-                        <input
+                        <input id="addNewTaskName"
                           type="text"
                           class="form-control"
                           id="addTaskName"
                           placeholder="enter the task name"
-                          required
                         />
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Required and needs to be at least 8 characters long</div>
                       </div>
 
                       <div class="form m-2">
                         <label for="addTaskDescription">Description: </label>
-                        <textarea
-                          class="form-control"
-                          id="addTaskDescription"
-                          placeholder="enter a description"
-                          required
-                        >
-                        </textarea>
+                        <textarea id="addTaskDescription" placeholder="Description" class="form-control" ></textarea>
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Required and needs to be at least 15 characters long</div>
                       </div>
+                      <!--Assign To  -->
+                      <div class="form m-2"> 
+                        <label for="addTaskAssignTo">Assign To: </label>
+                        <input id="addTaskAssignTo" type="text" placeholder="Assign To" class="form-control" >
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required and needs to be at least 8 characters long</div>
+                    </div>
+
 
                       <div class="form-inline m-2">
                         <label for="addDueDate">Due Date: </label>
                         <input
                           type="date"
                           class="form-control"
-                          id="addDueDate"
-                          required
+                          id="addTaskDueDate"
                         />
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required and should be today or a future date</div>
                       </div>
                       <div class="form-inline m-2">
                         <label for="addTaskStatus">Status: </label>
-                        <button
+                        <select id="addStatus" class="form-control " required>
+                          <option class="select" >To Do</option>
+                          <option>In Progress</option>
+                          <option>For Review</option>
+                          <option>Completed</option>
+                        </select>
+                        <!-- <button
                           class="btn btn-secondary dropdown-toggle"
                           type="button"
                           id="addTaskStatus"
@@ -131,7 +142,7 @@
                           aria-expanded="false"
                         >
                           Update
-                        </button>
+                        </button> -->
                         <div
                           class="dropdown-menu"
                           aria-labelledby="addTaskStatus"
@@ -144,11 +155,12 @@
                       </div>
 
                       <div class="form-inline m-2 justify-content-center">
-                        <button type="button" class="btn btn-success m-2">
+                        <button type="submit" class="btn btn-success m-2">
                           Add Task
                         </button>
                         <button
                           type="button"
+                          id="exitTaskForm"
                           class="btn btn-danger m-2"
                           data-dismiss="modal"
                         >
@@ -362,6 +374,8 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+
+    <script src="index.js"></script>
   </body>
   <footer>&copy; JeMo Pty Limited 2020</footer>
 </html>
