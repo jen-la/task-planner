@@ -2,7 +2,7 @@
 const validateTaskForm = document.querySelector("#validateAddNewTaskForm"); // task form
 const addNewTaskNameText = document.getElementById("addNewTaskName"); //task name
 const addDescriptionTextarea = document.getElementById("addTaskDescription"); // description
-const addAssignToText = document.getElementById("addtaskAssignTo"); //assign To
+const addAssignToText = document.getElementById("addTaskAssignTo"); //assign To
 const addDueDate = document.getElementById("addTaskDueDate");
 // const addStatusSelectList = document.querySelector("#addStatus");
 
