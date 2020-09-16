@@ -8,10 +8,19 @@ class TaskManager {
         this.currentId = currentId;
     }
 
-    addTask(name, description, assignedTo, dueDate, status = "To Do") {
-        this.currentId++;
-        this.tasks.push({ "id": this.currentId, "name": name, "description": description, "assignedTo": assignedTo, "dueDate": dueDate, "status": status }); // push new task as a new nested array in TaskManager.tasks array
+    addTask(name, description, assignedTo, dueDate, status = 'To Do') {
+        const task = {
+            id: this.currentId++,
+            name: name,
+            description: description,
+            assignedTo: assignedTo,
+            dueDate: dueDate,
+            status: status
+        };
+        
+        this.tasks.push(task); // push new task as a new nested array in TaskManager.tasks array
     }
 }
 
-let taskManager = new TaskManager();
+// new TaskManager instance
+const taskManager = new TaskManager(0);
