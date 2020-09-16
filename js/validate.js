@@ -61,9 +61,15 @@ validateTaskForm.addEventListener('submit', (event) => {
     // alert(isNaN(addNewTaskNameText));
 
     // TASK 6, Step 4: use TaskManager class to keep track of tasks we add with the New Task form.
+    const name = addNewTaskNameText.value;
+    const description = addDescriptionTextarea.value;
+    const assignee = addAssignToText.value;
+    const dueDate = addDueDate.value;
+    const status = addStatusSelectList.value;
+    
     if (addNewTaskNameText.classList.contains("is-valid") && addDescriptionTextarea.classList.contains("is-valid") && addAssignToText.classList.contains("is-valid") && addDueDate.classList.contains("is-valid")) {
         
-        taskManager.addTask(addNewTaskNameText.value, addDescriptionTextarea.value, addAssignToText.value, addDueDate.value, addStatusSelectList.value); // add new task to taskManager.tasks array if form validation successful
+        taskManager.addTask(name, description, assignee, dueDate, status); // add new task to taskManager.tasks array if form validation successful
         
         validateTaskForm.reset(); // clear/reset form values, ready for next submission
     }
