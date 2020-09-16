@@ -4,7 +4,7 @@ const addNewTaskNameText = document.getElementById("addNewTaskName"); //task nam
 const addDescriptionTextarea = document.getElementById("addTaskDescription"); // description
 const addAssignToText = document.getElementById("addTaskAssignTo"); //assign To
 const addDueDate = document.getElementById("addTaskDueDate");
-// const addStatusSelectList = document.querySelector("#addStatus");
+const addStatusSelectList = document.querySelector("#addStatus");
 
 
 validateTaskForm.addEventListener('submit', (event) => {
@@ -33,7 +33,7 @@ validateTaskForm.addEventListener('submit', (event) => {
 
     //validate AssignedTo 
 
-    if(addAssignToText.value.length > 8) { //Not Empty and longer than 8 characters
+    if(addAssignToText.value.length > 2) { //Not Empty and longer than 8 characters // JEN: Updated to allow minimum of 3 characters
         addAssignToText.classList.add("is-valid");
         addAssignToText.classList.remove("is-invalid");
     } else {
@@ -60,6 +60,13 @@ validateTaskForm.addEventListener('submit', (event) => {
 
     // alert(isNaN(addNewTaskNameText));
 
+    // TASK 6, Step 4: use TaskManager class to keep track of tasks we add with the New Task form.
+    if (addNewTaskNameText.classList.contains("is-valid") && addDescriptionTextarea.classList.contains("is-valid") && addAssignToText.classList.contains("is-valid") && addDueDate.classList.contains("is-valid")) {
+        
+        taskManager.addTask(addNewTaskNameText.value, addDescriptionTextarea.value, addAssignToText.value, addDueDate.value, addStatusSelectList.value); // add new task to taskManager.tasks array if form validation successful
+        
+        validateTaskForm.reset(); // clear/reset form values, ready for next submission
+    }
 
 });
 
