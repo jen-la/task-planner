@@ -70,7 +70,7 @@ validateTaskForm.addEventListener('submit', (event) => {
     if (addNewTaskNameText.classList.contains("is-valid") && addDescriptionTextarea.classList.contains("is-valid") && addAssignToText.classList.contains("is-valid") && addDueDate.classList.contains("is-valid")) {
         
         taskManager.addTask(name, description, assignee, dueDate, status); // add new task to taskManager.tasks array if form validation successful
-        
+        taskManager.render(); // TASK 7 Step 3: call render() each time a new task is added, to render it to page
         validateTaskForm.reset(); // clear/reset form values, ready for next submission
     }
 
