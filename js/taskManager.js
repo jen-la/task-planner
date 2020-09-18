@@ -13,12 +13,11 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
             <div class="header ${
               status === "ToDo" ? "bg-danger" : "bg-success"
             } pt-2 mb-0"><strong>${status}</strong></div>
-            <div class="card-body ${
-              status === "ToDo" ? "bg-danger" : "bg-success"
-            } card_title">
-                <h5 class="card-title">${name}</h5>
-                
-            </div>
+                <div class="card-body ${
+                  status === "ToDo" ? "bg-danger" : "bg-success"
+                } card_title">
+                    <h5 class="card-title">${name}</h5>
+                </div>
             
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Assigned to</strong>: ${assignedTo}</li>
