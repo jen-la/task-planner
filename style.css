@@ -80,3 +80,8 @@ footer {
   flex-flow: row wrap;
   justify-content: space-between;
 }
+
+.navbar-toggler-icon {
+  border: 0.5px solid gray;
+  padding-bottom: 5px;
+}
