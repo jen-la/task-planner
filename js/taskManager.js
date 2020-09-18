@@ -10,12 +10,8 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const html = `
         <div class="list-group-item card card_layout" data-task-id=${id}>  
             
-            <div class="header ${
-              status === "ToDo" ? "bg-danger" : "bg-success"
-            } pt-2 mb-0"><strong>${status}</strong></div>
-                <div class="card-body ${
-                  status === "ToDo" ? "bg-danger" : "bg-success"
-                } card_title">
+            <div class="header pt-2 mb-0 ${ status === "To Do" ? "bg-danger" : status === "In Progress" ? "bg-warning" : status === "For Review" ? "bg-info" : "bg-success" }"><strong>${status}</strong></div>
+                <div class="card-body card_title ${ status === "To Do" ? "bg-danger" : status === "In Progress" ? "bg-warning" : status === "For Review" ? "bg-info" : "bg-success" }">
                     <h5 class="card-title">${name}</h5>
                 </div>
             
@@ -30,17 +26,15 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                     <a href="#" class="card-link"><span class="fas fa-trash"></span></a>
                 </div>
                 <div class="d-flex w-100 mb-2 justify-content-around">
-                    <button class="btn btn-outline-success done-button">Mark As Done</button>
+                    <button class="btn btn-outline-success done-button ${status === "Done" ? "invisible" : "visible"}">Mark As Done</button>
+                    
                 </div>
             
           
         </div>
     `;
-
   return html;
 };
-
-// const test = createTaskHtml('Buy coffee', 'Go to Toby\'s Estate', 'Jen', '2020-09-17', 'To Do');
 
 // TASK 6:
 // Step 2: create TaskManager class that will be responsible for managing the tasks in the application.
@@ -52,14 +46,14 @@ class TaskManager {
     this.currentId = currentId;
   }
 
-  addTask(name, description, assignedTo, dueDate) {
+  addTask(name, description, assignedTo, dueDate, status = "To Do") {
     const task = {
       id: this.currentId++,
       name: name,
       description: description,
       assignedTo: assignedTo,
       dueDate: dueDate,
-      status: "ToDo",
+      status: status
     };
 
     this.tasks.push(task); // push new task as a new nested array in TaskManager.tasks array

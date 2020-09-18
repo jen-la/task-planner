@@ -111,5 +111,6 @@ taskCards.addEventListener("click", (e) => {
 
     //render the tasks
     taskManager.render();
+
   }
 });
