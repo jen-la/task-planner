@@ -7,7 +7,15 @@ body {
 }
 
 nav > a {
-  color: white;
+  color: green;
+  font-size: 24px;
+  font-style: 700;
+}
+
+.navbar {
+  background-color: #dfffe2;
+  box-shadow: 5px 5px 7px #494949;
+  height: 100px;
 }
 
 .container {
@@ -18,16 +26,27 @@ nav > a {
 
 #panel {
   min-width: 100%;
+  background-image: url(taskplannerbackground-01.svg);
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #admin_panel {
-  min-height: 100%vh;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+}
+
+#admin-card {
+  min-width: 75%;
   background-color: rgb(192, 243, 227);
-  flex-basis: 25%;
 }
 
 #planner_panel {
   min-height: 100vh;
+  min-width: 80%;
   text-align: center;
 }
 
@@ -66,7 +85,9 @@ h2 > a > span {
 footer {
   padding: 15px;
   text-align: center;
-  background-color: rgb(230, 233, 238);
+  background-color: #69a1ac;
+  height: 50px;
+  color: #ffffff;
 }
 
 /* Add Task Modal */
@@ -80,3 +101,5 @@ footer {
   flex-flow: row wrap;
   justify-content: space-between;
 }
+
+/* Background for planner panel */

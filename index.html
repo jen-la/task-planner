@@ -8,18 +8,19 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"/>
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/144c0e3213.js"
-      crossorigin="anonymous">
-    </script>
+      crossorigin="anonymous"
+    ></script>
     <title>JenMo Task Planner</title>
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-dark bg-dark mb-10px">
+      <nav class="navbar navbar-dark mb-10px justify-content-around">
         <a class="navbar-brand" href="#">&lt JeMO &gt</a>
         <a href="#">About us</a>
         <a href="#">Notifications</a>
@@ -36,23 +37,24 @@
               <li><a href="#">Manage Profile / Settings</a></li>
               <li><a href="#">About Us</a></li>
             </ul>
-          </div>
-        </div>
-        <div class="dropdown m-5">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Tags
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Project Bitman</a>
-            <a class="dropdown-item" href="#">Admin</a>
-            <a class="dropdown-item" href="#">Create New</a>
+
+            <div class="dropdown m-5">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Tags
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Project Bitman</a>
+                <a class="dropdown-item" href="#">Admin</a>
+                <a class="dropdown-item" href="#">Create New</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -90,30 +92,45 @@
                     <div class="form-group">
                       <div class="form m-2">
                         <label for="addTaskName">Task Name: </label>
-                        <input id="addNewTaskName"
+                        <input
+                          id="addNewTaskName"
                           type="text"
                           class="form-control"
                           id="addTaskName"
                           placeholder="enter the task name"
                         />
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Required and needs to be at least 8 characters long</div>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Required and needs to be at least 8 characters long
+                        </div>
                       </div>
 
                       <div class="form m-2">
                         <label for="addTaskDescription">Description: </label>
-                        <textarea id="addTaskDescription" placeholder="Description" class="form-control" ></textarea>
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Required and needs to be at least 15 characters long</div>
+                        <textarea
+                          id="addTaskDescription"
+                          placeholder="Description"
+                          class="form-control"
+                        ></textarea>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Required and needs to be at least 15 characters long
+                        </div>
                       </div>
                       <!--Assign To  -->
-                      <div class="form m-2"> 
+                      <div class="form m-2">
                         <label for="addTaskAssignTo">Assign To: </label>
-                        <input id="addTaskAssignTo" type="text" placeholder="Assign To" class="form-control" >
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">Required and needs to be at least 8 characters long</div>
-                    </div>
-
+                        <input
+                          id="addTaskAssignTo"
+                          type="text"
+                          placeholder="Assign To"
+                          class="form-control"
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Required and needs to be at least 8 characters long
+                        </div>
+                      </div>
 
                       <div class="form-inline m-2">
                         <label for="addDueDate">Due Date: </label>
@@ -122,13 +139,15 @@
                           class="form-control"
                           id="addTaskDueDate"
                         />
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">Required and should be today or a future date</div>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Required and should be today or a future date
+                        </div>
                       </div>
                       <div class="form-inline m-2">
                         <label for="addTaskStatus">Status: </label>
-                        <select id="addStatus" class="form-control " required>
-                          <option class="select" >To Do</option>
+                        <select id="addStatus" class="form-control" required>
+                          <option class="select">To Do</option>
                           <option>In Progress</option>
                           <option>For Review</option>
                           <option>Completed</option>
@@ -202,7 +221,8 @@
           <a class="dropwdown-item" href="#">Assigned To Clear</a>
         </div>
         <!-- TASK 7 Step 2: Add id ("taskCards") to list of tasks so it can be selected   -->
-        <div id="taskCards"
+        <div
+          id="taskCards"
           class="list-group d-flex justify-content-center flex-wrap flex-md-row"
         >
           <!-- <div class="list-group-item card card_layout">
@@ -376,10 +396,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="js/index.js"></script>
-    <script src="js/validate.js"></script>
     <script src="js/taskManager.js"></script>
-    
+    <script src="js/validate.js"></script>
+    <script src="js/index.js"></script>
   </body>
   <footer>&copy; JeMo Pty Limited 2020</footer>
 </html>
