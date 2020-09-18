@@ -58,8 +58,6 @@ validateTaskForm.addEventListener('submit', (event) => {
     // /* status selectlist default selected to do. so the value not null always. 
     // we dont need to do a validation there */
 
-    // alert(isNaN(addNewTaskNameText));
-
     // TASK 6, Step 4: use TaskManager class to keep track of tasks we add with the New Task form.
     const name = addNewTaskNameText.value;
     const description = addDescriptionTextarea.value;
@@ -71,13 +69,27 @@ validateTaskForm.addEventListener('submit', (event) => {
         
         taskManager.addTask(name, description, assignee, dueDate, status); // add new task to taskManager.tasks array if form validation successful
         taskManager.render(); // TASK 7 Step 3: call render() each time a new task is added, to render it to page
-        validateTaskForm.reset(); // clear/reset form values, ready for next submission
+        resetFormFields(); //reset form values
     }
 
 });
 
-    //var todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    //alert(todayDate);
-    //alert(Date.parse(todayDate) + " vs "+ Date.parse(addDueDate.value));
+// clear, reset form values, ready for next submission
+const resetFormFields = () => {
+    validateTaskForm.reset(); 
+        
+    addNewTaskNameText.classList.remove("is-valid");
+    addNewTaskNameText.classList.remove("is-invalid");
+    
+    addDescriptionTextarea.classList.remove("is-valid");
+    addDescriptionTextarea.classList.remove("is-invalid");
+
+    addAssignToText.classList.remove("is-valid");
+    addAssignToText.classList.remove("is-invalid");
+
+    addDueDate.classList.remove("is-valid");
+    addDueDate.classList.remove("is-invalid");
+};
+
 
 
