@@ -10,11 +10,13 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://use.typekit.net/spf6lis.css" />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/144c0e3213.js"
       crossorigin="anonymous"
     ></script>
+   
     <title>JenMo Task Planner</title>
   </head>
 
@@ -23,7 +25,7 @@
       <nav class="navbar navbar-dark mb-10px">
         <a class="navbar-brand" href="#">
           <img
-            src="JeMo_Logo-01.svg"
+            src="assets/JeMo_Logo-01.svg"
             width="200px"
             height="80px"
             alt="JeMo Logo"
@@ -31,7 +33,7 @@
         </a>
         <div>
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item ml-5">
+            <li class="nav-item">
               <a href="#">About Us</a>
             </li>
             <li class="nav-item">
@@ -48,15 +50,37 @@
       <div class="container" id="admin_panel">
         <div class="card" id="admin_card">
           <div class="card-body">
-            <div class="card-content">
+            <!--Today Today's Date & FF -->
+            <div class="card-content d-flex justify-content-around">
+              <div class="calendarDetails">
+                <h1>
+                  <a href="#"><span class="fas fa-backward m-3"></span></a
+                  >Today<a href="#"><span class="fas fa-forward m-3"></span></a>
+                </h1>
+
+                <div class="card-content d-flex justify-content-around">
+                  <h3> <script>
+                    document.write(new Date().toLocaleDateString());
+                  </script></h3>
+                </div>
+              </div>
+            </div>
+            <hr />
+
+            <!--Add Task Button & Modal Form-->
+
+            <div class="card-content d-flex justify-content-around">
               <button
-                class="m-5"
-                href="#"
-                class="btn btn-primary"
+                type="button"
+                class="btn btn-outline-light p-0 mt-3 mb-3"
                 data-toggle="modal"
                 data-target="#modalAddTask"
               >
-                Add Task
+                <img
+                  class="img-fluid functionBtn"
+                  src="assets/TPAddTaskBtn-01.png"
+                  alt=""
+                />
               </button>
             </div>
 
@@ -192,62 +216,119 @@
               </div>
             </div>
 
-            <div class="card-content">
-              <h2>
-                <a href="#"><span class="fas fa-backward m-3"></span></a>Today<a
-                  href="#"
-                  ><span class="fas fa-forward m-3"></span
-                ></a>
-              </h2>
-            </div>
-            <div class="card-content">[date]</div>
-            <button
-              class="btn btn-secondary drowdown-toggle m-5"
-              type="button"
-              id="dropDownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Filter
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropwdown-item" href="#">Assigned To Me</a>
-              <a class="dropwdown-item" href="#">Assigned To Others</a>
-              <a class="dropwdown-item" href="#">Assigned To Due Date</a>
-              <a class="dropwdown-item" href="#">Assigned To Status</a>
-              <a class="dropwdown-item" href="#">Assigned To Clear</a>
+            <hr />
+
+            <!--View Tasks By Week / All Upcoming Tasks / Filter-->
+
+            <div class="card-content adminSection" id="manageTaskView">
+              <div class="d-flex justify-content-around">
+                <h3 class="mt-3">View Tasks By:</h3>
+              </div>
+              <div class="card-content d-flex justify-content-around">
+                <button
+                  type="button"
+                  class="btn btn-outline-light mt-2 mb-2 p-0"
+                >
+                  <img
+                    class="img-fluid functionBtn"
+                    src="assets/TPThisWeekBtn-01.png"
+                    alt="View This Weeks Tasks Button"
+                  />
+                </button>
+              </div>
+
+              <div class="card-content d-flex justify-content-around">
+                <button
+                  type="button"
+                  class="btn btn-outline-light mt-2 mb-2 p-0"
+                >
+                  <img
+                    class="img-fluid functionBtn"
+                    src="assets/TPAllTasksBtn-01.png"
+                    alt="View All Tasks"
+                  />
+                </button>
+              </div>
+
+              <div class="card-content d-flex justify-content-around">
+                <button
+                  class="btn btn-outline-light mt-2 mb-2 p-0 drowdown-toggle"
+                  type="button"
+                  id="dropDownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    class="img-fluid functionBtn"
+                    src="assets/TPFilterBtn-01.png"
+                    alt="Filter Button"
+                  />
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropwdown-item" href="#">Assigned To Me</a>
+                  <a class="dropwdown-item" href="#">Assigned To Others</a>
+                  <a class="dropwdown-item" href="#">Assigned To Due Date</a>
+                  <a class="dropwdown-item" href="#">Assigned To Status</a>
+                  <a class="dropwdown-item" href="#">Assigned To Clear</a>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <button class="m-5">View tasks for week</button>
-            </div>
-            <div>
-              <button class="m-5">View all upcoming tasks</button>
-            </div>
+            <hr />
+            <!--Manage Teams, Tags, Profile Settings-->
 
-            <ul class="functions">
-              <li><a href="#">Add New Task</a></li>
-              <li><a href="#">Manage Teams</a></li>
-              <li><a href="#">Manage Profile / Settings</a></li>
-              <li><a href="#">About Us</a></li>
-            </ul>
+            <div class="card-content adminSection" id="manageSettings">
+              <div class="d-flex justify-content-around">
+                <h3 class="mt-3">Manage your:</h3>
+              </div>
 
-            <div class="dropdown m-5">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Tags
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Project Bitman</a>
-                <a class="dropdown-item" href="#">Admin</a>
-                <a class="dropdown-item" href="#">Create New</a>
+              <div class="card-content d-flex justify-content-around">
+                <button
+                  type="button"
+                  class="btn btn-outline-light mt-2 mb-2 p-0"
+                >
+                  <img
+                    class="img-fluid functionBtn"
+                    src="assets/TPTeamsBtn-01.png"
+                    alt="Manage Teams Button"
+                  />
+                </button>
+              </div>
+
+              <div class="card-content d-flex justify-content-around">
+                <button
+                  type="button"
+                  class="btn btn-outline-light mt-2 mb-2 p-0"
+                >
+                  <img
+                    class="img-fluid functionBtn"
+                    src="assets/TPProfileBtn-01.png"
+                    alt="Manage Profile Button"
+                  />
+                </button>
+              </div>
+
+              <div class="card-content d-flex justify-content-around dropdown">
+                <button
+                  class="btn btn-outline-light mt-2 mb-2 p-0"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    class="img-fluid functionBtn"
+                    src="assets/TPTags-01.png"
+                    alt="Tags Dropdown Button"
+                  />
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Project Bitman</a>
+                  <a class="dropdown-item" href="#">Admin</a>
+                  <a class="dropdown-item" href="#">Create New</a>
+                </div>
               </div>
             </div>
           </div>
@@ -429,5 +510,5 @@
     <script src="js/validate.js"></script>
     <script src="js/index.js"></script>
   </body>
-  <footer>&copy; JeMo Pty Limited 2020</footer>
+  <footer>&copy;2020 JeMo Pty. Ltd. All Rights Reserved</footer>
 </html>
