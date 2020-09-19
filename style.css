@@ -158,3 +158,56 @@ footer {
   flex-flow: row wrap;
   justify-content: space-between;
 }
+
+.addNew h3 {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.addNewHdr {
+  background-color: #c2e4f9;
+}
+
+form {
+  font-family: shackelton, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  
+}
+
+
+
+
+#comingSoon.modal {
+  position: absolute;
+  float: left;
+  left: 10%;
+  top: 20%;
+}
+
+.modal-header {
+  background-color: #fefad2;
+}
+
+.modal-title {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
+  color:#e8dfb5;
+  font-size: 36px;
+}
+
+.modal-body {
+  font-family: mahalia, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: slategray;
+  font-size: 36px;
+
+}
+
+.modal-footer {
+  background-color: #fefad2;
+}
