@@ -81,14 +81,14 @@ body {
   color: green;
 }
 
-.card {
+#adminCard {
   border-radius: 20px;
   box-shadow: 5px 5px 7px #08700e;
   min-width: 75%;
   min-height: 50%;
 }
 
-.card-body {
+#adminCardBody {
   background-color: #dfffe2;
   border-radius: 20px;
   display: inline-block;
@@ -141,6 +141,13 @@ footer {
 }
 
 /* Add Task Modal */
+
+.modal {
+  position: absolute;
+  float: left;
+  left: 20%;
+  top: 20%;
+}
 
 .form {
   text-align: left;
