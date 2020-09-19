@@ -55,7 +55,6 @@ body {
   font-style: normal;
   color: green;
   font-size: 56px;
-  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -85,7 +84,7 @@ body {
   border-radius: 20px;
   box-shadow: 5px 5px 10px 7px rgba(178,173,170,0.5);
   min-width: 75%;
-  max-height: 90%;
+  max-height: 98%;
 }
 
 #adminCardBody {
@@ -173,11 +172,16 @@ form {
   font-family: shackelton, serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 20px;
-  
+ }
+
+
+.form textarea {
+  font-size: 1.25em;
+} 
+
+.form input {
+  font-size: 1.25em;
 }
-
-
 
 
 #comingSoon.modal {
