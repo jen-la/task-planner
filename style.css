@@ -6,18 +6,27 @@ body {
   margin: 0;
 }
 
-nav > a {
-  color: green;
-  font-size: 24px;
-  font-style: 700;
-}
-
 .navbar {
   background-color: #dfffe2;
-  box-shadow: 5px 5px 7px #494949;
+  box-shadow: 5px 5px 10px 7px rgba(178,173,170,0.5);
   height: 100px;
 }
 
+.navbar-brand {
+  margin-left: 150px;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navbar-nav a {
+  font-size: 32px;
+  color: #08700e;
+  margin-right: 30px;
+}
 .container {
   margin: 0;
   padding: 0;
@@ -26,22 +35,66 @@ nav > a {
 
 #panel {
   min-width: 100%;
-  background-image: url(taskplannerbackground-01.svg);
+  background-image: url(assets/taskplannerbackground-01.svg);
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #admin_panel {
-  min-height: 100vh;
-
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-height: 90%;
   display: flex;
   justify-content: center;
 }
 
-#admin-card {
+.calendarDetails h1 {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
+  color: green;
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+
+.calendarDetails h3 {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
+  color: green;
+}
+
+.fa-backward {
+  color: green;
+}
+
+.fa-forward {
+  color: green;
+}
+
+.adminSection h3 {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
+  color: green;
+}
+
+#adminCard {
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px 7px rgba(178,173,170,0.5);
   min-width: 75%;
-  background-color: rgb(192, 243, 227);
+  max-height: 98%;
+}
+
+#adminCardBody {
+  background-color: #dfffe2;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.functionBtn {
+  height: 80px;
 }
 
 #planner_panel {
@@ -52,10 +105,6 @@ nav > a {
 
 h2 > a > span {
   color: rgb(30, 59, 49);
-}
-
-#admin_card {
-  margin: 15px 10px 15px 10px;
 }
 
 .card-header {
@@ -85,12 +134,19 @@ h2 > a > span {
 footer {
   padding: 15px;
   text-align: center;
-  background-color: #69a1ac;
+  background-color: #08700e;
   height: 50px;
   color: #ffffff;
 }
 
 /* Add Task Modal */
+
+.modal {
+  position: absolute;
+  float: left;
+  left: 20%;
+  top: 20%;
+}
 
 .form {
   text-align: left;
@@ -102,4 +158,60 @@ footer {
   justify-content: space-between;
 }
 
-/* Background for planner panel */
+.addNew h3 {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.addNewHdr {
+  background-color: #c2e4f9;
+}
+
+form {
+  font-family: shackelton, serif;
+  font-weight: 400;
+  font-style: normal;
+ }
+
+
+.form textarea {
+  font-size: 1.25em;
+} 
+
+.form input {
+  font-size: 1.25em;
+}
+
+
+#comingSoon.modal {
+  position: absolute;
+  float: left;
+  left: 10%;
+  top: 20%;
+}
+
+.modal-header {
+  background-color: #fefad2;
+}
+
+.modal-title {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
+  color:#e8dfb5;
+  font-size: 36px;
+}
+
+.modal-body {
+  font-family: mahalia, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: slategray;
+  font-size: 36px;
+
+}
+
+.modal-footer {
+  background-color: #fefad2;
+}
