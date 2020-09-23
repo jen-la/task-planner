@@ -69,6 +69,7 @@ validateTaskForm.addEventListener("submit", (event) => {
     addDueDate.classList.contains("is-valid")
   ) {
     taskManager.addTask(name, description, assignee, dueDate, status); // add new task to taskManager.tasks array if form validation successful
+    taskManager.saveTasks(); //Task 9 = save tasks to local storage
     taskManager.render(); // TASK 7 Step 3: call render() each time a new task is added, to render it to page
     resetFormFields(); //reset form values
   }
@@ -109,8 +110,30 @@ taskCards.addEventListener("click", (e) => {
     //update status to done
     task.status = "Done";
 
+    //save the tasks to local storage
+
+    taskManager.saveTasks();
+
     //render the tasks
     taskManager.render();
 
   }
+  //task 10 - deleting tasks
+
+  if (e.target.classList.contains("delete-button")) {
+    //get the parent task
+    const parentTask = e.target.parentElement.parentElement;
+
+    //get the ID for the parent task
+    const taskId = Number(parentTask.dataset.taskId);
+
+    //delete the task using the taskId
+
+    taskManager.deleteTask(taskId);
+
+    taskManager.saveTasks();
+
+    taskManager.render();
+  }
+  
 });

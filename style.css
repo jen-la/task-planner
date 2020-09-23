@@ -23,6 +23,9 @@ body {
 }
 
 .navbar-nav a {
+  font-family: shackleton, serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 32px;
   color: #08700e;
   margin-right: 30px;
@@ -45,18 +48,23 @@ body {
   margin-top: 50px;
   margin-bottom: 50px;
   max-height: 90%;
+  max-width: 90%;
   display: flex;
   justify-content: center;
 }
 
-.calendarDetails h1 {
+.today {
+  max-width: 60%;
+}
+
+/* .calendarDetails h1 {
   font-family: shackleton, serif;
   font-weight: 400;
   font-style: normal;
   color: green;
   font-size: 56px;
   margin-bottom: 10px;
-}
+} */
 
 .calendarDetails h3 {
   font-family: shackleton, serif;
@@ -83,7 +91,7 @@ body {
 #adminCard {
   border-radius: 20px;
   box-shadow: 5px 5px 10px 7px rgba(178,173,170,0.5);
-  min-width: 75%;
+  max-width: 75%;
   max-height: 98%;
 }
 
@@ -93,8 +101,9 @@ body {
   display: inline-block;
 }
 
-.functionBtn {
-  height: 80px;
+.adminBtn {
+  max-width: 50%;
+  
 }
 
 #planner_panel {
