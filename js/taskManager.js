@@ -27,8 +27,8 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                 </div>
                 <div class="d-flex w-100 mb-2 justify-content-around">
                     <button class="btn btn-outline-success done-button ${status === "Done" ? "invisible" : "visible"}">Mark As Done</button>
-                    
-                </div>
+                    <button class="btn btn-outline-danger delete-button">Delete Task</button>
+                </div>    
             
           
         </div>
@@ -58,6 +58,21 @@ class TaskManager {
 
     this.tasks.push(task); // push new task as a new nested array in TaskManager.tasks array
   }
+
+  deleteTask(taskId) {
+
+    const newTasks = [];  //create an empty array for the tasks
+  
+    for (let i = 0; i < this.tasks.length; i++) {  //loop over the array 
+      const task = this.tasks[i];  //store the current task in a variable called task
+  
+        if (task.id !== taskId) {  //check if the task Id is not equal to the task passed in by the delete function
+          newTasks.push(task); // if it doesn't match - push the task into a new array called newTasks
+        }
+      }
+      this.tasks = newTasks;
+  }
+
 
   getTaskById(taskId) {
     // a variable to store the task by Id
@@ -109,10 +124,52 @@ class TaskManager {
     const taskCards = document.querySelector("#taskCards");
     taskCards.innerHTML = tasksHtml;
   }
+
+saveTasks() {
+
+    
+  const tasksJson = JSON.stringify(this.tasks);  //convert the tasks to a JSON string
+  
+    localStorage.setItem('tasks', tasksJson);  //stores the string in local storage
+  
+    const currentId = String(this.currentId);  //converts the currentId to a string
+
+    localStorage.setItem('currentId', currentId); //stores currentId in local storage
+    };
+
+
+
+loadTasks() {
+
+  if (localStorage.getItem('tasks')) {  //check to see if tasks are in local storage
+
+    const tasksJson = localStorage.getItem('tasks'); //retrieve the tasks in storage into a variable
+
+    this.tasks = JSON.parse(tasksJson); //convert the tasks from a string back into an array
+  }
+
+  if (localStorage.getItem('currentId')) { //check to see if the current ID is saved in local storage
+
+    const currentId = localStorage.getItem('currentId'); //retrieve the current ID into a variable
+
+    this.currentId = Number(currentId); //convert the current ID into a number
+  };
+}
+
+
+
 }
 
 // new instance
 const taskManager = new TaskManager(0);
+
+// load tasks saved in local storage
+
+taskManager.loadTasks();
+
+// render them to the screen
+
+taskManager.render();
 
 //<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
 //<span class="navbar-toggler-icon"></span>

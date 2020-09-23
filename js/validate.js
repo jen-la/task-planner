@@ -118,4 +118,22 @@ taskCards.addEventListener("click", (e) => {
     taskManager.render();
 
   }
+  //task 10 - deleting tasks
+
+  if (e.target.classList.contains("delete-button")) {
+    //get the parent task
+    const parentTask = e.target.parentElement.parentElement;
+
+    //get the ID for the parent task
+    const taskId = Number(parentTask.dataset.taskId);
+
+    //delete the task using the taskId
+
+    taskManager.deleteTask(taskId);
+
+    taskManager.saveTasks();
+
+    taskManager.render();
+  }
+  
 });
