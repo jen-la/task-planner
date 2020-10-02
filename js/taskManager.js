@@ -21,9 +21,9 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                     <li class="list-group-item card_description">${description}</li>
                 </ul>
                 <div class="d-flex w-100 mb-2 justify-content-around">
-                    <button class="btn btn-outline-success done-button ${status === "Done" ? "invisible" : "visible"}"><span class="far fa-check-square"></span></button>
-                    <button class="btn btn-outline-warning edit-button"><span class="fas fa-pen"></span></button>
-                    <button class="btn btn-outline-danger delete-button"><span class="fas fa-trash"></span></button>
+                    <button class="btn btn-outline-success done-button ${status === "Done" ? "invisible" : "visible"} far fa-check-square"></button>
+                    <button class="btn btn-outline-warning edit-button fas fa-pen"></button>
+                    <button class="btn btn-outline-danger delete-button fas fa-trash"></button>
                 </div>    
             
           
