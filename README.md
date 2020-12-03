@@ -5,4 +5,5 @@ A task planner built using vanilla JavaScript, including some unit tests.
 - CSS
 - JavaScript
 - Bootstrap
-- Jasmine 
+- Jasmine
+- Font Awesome
