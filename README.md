@@ -1,7 +1,8 @@
 # task-planner
-A simple task planner built using vanilla JavaScript. 
+A task planner built using vanilla JavaScript, including some unit tests. 
 ### Tech
 - HTML
 - CSS
 - JavaScript
 - Bootstrap
+- Jasmine 
