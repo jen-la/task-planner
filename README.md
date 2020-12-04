@@ -1,5 +1,5 @@
 # task-planner
-A task planner built using vanilla JavaScript, including some unit tests. 
+A task planner built using vanilla JavaScript, including some unit tests.  
 ### Built with
 - HTML
 - CSS
@@ -8,3 +8,5 @@ A task planner built using vanilla JavaScript, including some unit tests.
 - Font Awesome
 ### Tested using
 - Jasmine
+###
+Currently being updated.

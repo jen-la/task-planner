@@ -1,17 +1,15 @@
-//form validation
-const validateTaskForm = document.querySelector("#validateAddNewTaskForm"); // task form
-const addNewTaskNameText = document.getElementById("addNewTaskName"); //task name
-const addDescriptionTextarea = document.getElementById("addTaskDescription"); // description
-const addAssignToText = document.getElementById("addTaskAssignTo"); //assign To
+// form validation
+const validateTaskForm = document.querySelector("#validateAddNewTaskForm"); 
+const addNewTaskNameText = document.getElementById("addNewTaskName"); 
+const addDescriptionTextarea = document.getElementById("addTaskDescription"); 
+const addAssignToText = document.getElementById("addTaskAssignTo"); 
 const addDueDate = document.getElementById("addTaskDueDate");
 const addStatusSelectList = document.querySelector("#addStatus");
 
 validateTaskForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  //validate task name
-
+ 
   if (addNewTaskNameText.value.length > 8) {
-    //covers Not Empty and longer than 8 characters
     addNewTaskNameText.classList.add("is-valid");
     addNewTaskNameText.classList.remove("is-invalid");
   } else {
@@ -19,9 +17,7 @@ validateTaskForm.addEventListener("submit", (event) => {
     addNewTaskNameText.classList.add("is-invalid");
   }
 
-  //validate description
-
-  if (addDescriptionTextarea.value.length > 15) {
+  if (addDescriptionTextarea.value.length > 10) {
     //covers Not Empty and longer than 15 characters
     addDescriptionTextarea.classList.add("is-valid");
     addDescriptionTextarea.classList.remove("is-invalid");
@@ -30,10 +26,7 @@ validateTaskForm.addEventListener("submit", (event) => {
     addDescriptionTextarea.classList.add("is-invalid");
   }
 
-  //validate AssignedTo
-
   if (addAssignToText.value.length > 2) {
-    //Not Empty and longer than 8 characters // JEN: Updated to allow minimum of 3 characters
     addAssignToText.classList.add("is-valid");
     addAssignToText.classList.remove("is-invalid");
   } else {
@@ -41,8 +34,7 @@ validateTaskForm.addEventListener("submit", (event) => {
     addAssignToText.classList.add("is-invalid");
   }
 
-  //validate set due date Not Empty and not in the past
-  var today = new Date(); //create a new object from date method
+  var today = new Date(); 
   if (today <= Date.parse(addDueDate.value)) {
     addDueDate.classList.add("is-valid");
     addDueDate.classList.remove("is-invalid");
@@ -51,11 +43,6 @@ validateTaskForm.addEventListener("submit", (event) => {
     addDueDate.classList.add("is-invalid");
   }
 
-  // //validate status
-  // /* status selectlist default selected to do. so the value not null always.
-  // we dont need to do a validation there */
-
-  // TASK 6, Step 4: use TaskManager class to keep track of tasks we add with the New Task form.
   const name = addNewTaskNameText.value;
   const description = addDescriptionTextarea.value;
   const assignee = addAssignToText.value;
@@ -68,14 +55,14 @@ validateTaskForm.addEventListener("submit", (event) => {
     addAssignToText.classList.contains("is-valid") &&
     addDueDate.classList.contains("is-valid")
   ) {
-    taskManager.addTask(name, description, assignee, dueDate, status); // add new task to taskManager.tasks array if form validation successful
-    taskManager.saveTasks(); //Task 9 = save tasks to local storage
-    taskManager.render(); // TASK 7 Step 3: call render() each time a new task is added, to render it to page
-    resetFormFields(); //reset form values
+    taskManager.addTask(name, description, assignee, dueDate, status);
+    taskManager.saveTasks(); 
+    taskManager.render(); 
+    resetFormFields(); 
   }
 });
 
-// clear, reset form values, ready for next submission
+// reset form values 
 const resetFormFields = () => {
   validateTaskForm.reset();
 
@@ -92,48 +79,27 @@ const resetFormFields = () => {
   addDueDate.classList.remove("is-invalid");
 };
 
-// Select the task cards
-
-const taskCards = document.querySelector("#taskCards");
-
-taskCards.addEventListener("click", (e) => {
-  if (e.target.classList.contains("done-button")) {
-    //get the parent task
-    const parentTask = e.target.parentElement.parentElement;
-
-    //get the ID for parent task
-    const taskId = Number(parentTask.dataset.taskId);
-
-    //find the task in TaskManager by id
-    const task = taskManager.getTaskById(taskId);
-
-    //update status to done
-    task.status = "Done";
-
-    //save the tasks to local storage
-
-    taskManager.saveTasks();
-
-    //render the tasks
-    taskManager.render();
-
-  }
-  //task 10 - deleting tasks
-
-  if (e.target.classList.contains("delete-button")) {
-    //get the parent task
-    const parentTask = e.target.parentElement.parentElement;
-
-    //get the ID for the parent task
-    const taskId = Number(parentTask.dataset.taskId);
-
-    //delete the task using the taskId
-
-    taskManager.deleteTask(taskId);
-
-    taskManager.saveTasks();
-
-    taskManager.render();
-  }
+// event listener for task cards - clicking 'done' and 'delete'
+const taskCards = document.querySelectorAll("div.task-cards-container");
+for (let i = 0; i < taskCards.length; i++) {
+  taskCards[i].addEventListener("click", (e) => {
+    if (e.target.classList.contains("done-button")) {
+      console.log('clicked');
+      const parentTask = e.target.parentElement.parentElement;
+      const taskId = Number(parentTask.dataset.taskId);
+      const task = taskManager.getTaskById(taskId);
+      task.status = "Done";
+      taskManager.saveTasks();
+      taskManager.render();
+    }
   
-});
+    if (e.target.classList.contains("delete-button")) {
+      console.log('clicked');
+      const parentTask = e.target.parentElement.parentElement;
+      const taskId = Number(parentTask.dataset.taskId);
+      taskManager.deleteTask(taskId);
+      taskManager.saveTasks();
+      taskManager.render();
+    }
+  }); 
+}

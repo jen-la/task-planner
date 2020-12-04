@@ -1,598 +1,293 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"l
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://use.typekit.net/spf6lis.css" />
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto" />
+    <link rel="stylesheet" href="styles.css" />
     <script
       src="https://kit.fontawesome.com/144c0e3213.js"
       crossorigin="anonymous"
     ></script>
-
-    <title>JenMo Task Planner</title>
+    <title>Task Planner</title>
   </head>
-
   <body>
     <header>
-      <nav class="navbar navbar-dark mb-10px">
-        <a class="navbar-brand" href="#">
-          <img
-            src="assets/JeMo_Logo-01.svg"
-            width="200px"
-            height="80px"
-            alt="JeMo Logo"
-          />
-        </a>
-        <div>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a href="#">About Us</a>
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <img
+          class="navbar-brand mr-5"  
+          src="./assets/JesmoLogo.png"
+          width="auto"
+          height="100px"
+          alt="logo"
+        />
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar-items" class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a href="#">Notifications</a>
+              <a class="nav-link" href="#">About us</a>
             </li>
             <li class="nav-item">
-              <a href="#">Settings</a>
+              <a class="nav-link" href="#">Settings</a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
-
-    <div class="container d-flex" id="panel">
-     
-      <div class="container d-flex align-items-center" id="admin_panel">
-     
-        <div class="card" id="adminCard">
-          <div class="card-body" id="adminCardBody">
-     
-            <!--Today Today's Date & FF -->
-            <div class="card-content d-flex justify-content-around">
-              <div class="calendarDetails">
-                <h1 class="d-flex justify-content-center align-items-center">
-                  <a href="#"><span class="fas fa-backward m-3"></span></a> 
-                  <img class="today" src="assets/TPTodayGraphic.png" alt="Today" /><a href="#"><span class="fas fa-forward m-3"></span></a>
-                </h1>
-
-                <div class="card-content d-flex justify-content-around">
-                  <h3>
-                    <script>
-                      document.write(new Date().toLocaleDateString());
-                    </script>
-                  </h3>
+    <main class="container-fluid">
+      <!--Today heading, buttons and date -->
+      <div id="calendarDetails" class="d-flex justify-content-center mb-3">
+        <button class="btn"><span class="fas fa-backward fa-2x mx-sm-5"></span></button> 
+        <h1>Today</h1>
+        <button class="btn"><span class="fas fa-forward fa-2x mx-sm-5"></span></button>
+      </div>    
+      <h3 class="mb-5">
+        <script>
+          document.write(new Date().toLocaleDateString());
+        </script>
+      </h3>
+      <button
+        type="button"
+        id="add-task-btn"
+        class="btn btn-lg px-5 py-3 mb-5"
+        data-toggle="modal"
+        data-target="#modalAddTask"
+      >
+        Add task
+      </button>
+      <div id="sort-btn-container" class="d-flex justify-content-center mb-5">
+        <button type="button" class="btn px-3 py-1 mx-sm-2">View entire week</button>
+        <button type="button" class="btn px-3 py-1 mx-sm-2">View all</button>
+        <button type="button" class="btn px-3 py-1 mx-sm-2">Filter by...</button>
+      </div> 
+      <!-- Add task modal form-->
+      <div id="modalAddTask" class="modal" role="dialog">
+        <div class="row">
+          <div class="container-fluid d-flex">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header addNew">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                      <h3>Add New Task</h3>
                 </div>
-              </div>
-            </div>
-            
-            <hr />
-
-            <!--Add Task Button & Modal Form-->
-
-            <div class="card-content d-flex justify-content-around">
-              <button
-                type="button"
-                class="btn btn-outline-light p-0 mt-3 mb-3 adminBtn"
-                data-toggle="modal"
-                data-target="#modalAddTask"
-              >
-                <img
-                  class="img-fluid functionBtn"
-                  src="assets/TPAddTaskBtn-01.png"
-                  alt=""
-                />
-              </button>
-            </div>
-
-            <hr />
-
-            <!--View Tasks By Week / All Upcoming Tasks / Filter-->
-
-            <div class="card-content adminSection" id="manageTaskView">
-              <div class="d-flex justify-content-around">
-                <h3 class="mt-3">View Tasks By:</h3>
-              </div>
-              
-              <div class="card-content d-flex justify-content-around">
-                <button
-                  type="button"
-                  class="btn btn-outline-light mt-2 mb-2 p-0 adminBtn"
-                  data-toggle="modal"
-                  data-target="#comingSoon"
-                >
-                  <img
-                    class="img-fluid functionBtn"
-                    src="assets/TPThisWeekBtn-01.png"
-                    alt="View This Weeks Tasks Button"
-                  />
-                </button>
-              </div>
-
-              <div class="card-content d-flex justify-content-around">
-                <button
-                  type="button"
-                  class="btn btn-outline-light mt-2 mb-2 p-0 adminBtn"
-                  data-toggle="modal"
-                  data-target="#comingSoon"
-                >
-                  <img
-                    class="img-fluid functionBtn"
-                    src="assets/TPAllTasksBtn-01.png"
-                    alt="View All Tasks"
-                  />
-                </button>
-              </div>
-
-              <div class="card-content d-flex justify-content-around">
-                <button
-                  class="btn btn-outline-light mt-2 mb-2 p-0 dropdown adminBtn"
-                  type="button"
-                  id="dropDownMenuButtonFilter"
-                  data-toggle="modal"
-                  data-target="#comingSoon"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <img
-                    class="img-fluid functionBtn"
-                    src="assets/TPFilterBtn-01.png"
-                    alt="Filter Button"
-                  />
-                </button>
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="dropdownMenuButtonFilter"
-                >
-                  <a class="dropwdown-item" href="#">Assigned To Me</a>
-                  <a class="dropwdown-item" href="#">Assigned To Others</a>
-                  <a class="dropwdown-item" href="#">Assigned To Due Date</a>
-                  <a class="dropwdown-item" href="#">Assigned To Status</a>
-                  <a class="dropwdown-item" href="#">Assigned To Clear</a>
-                </div>
-              </div>
-            
-            </div>
-
-            <hr />
-            
-            <!--Manage Teams, Tags, Profile Settings-->
-
-            <div class="card-content adminSection" id="manageSettings">
-              <div class="d-flex justify-content-around">
-                <h3 class="mt-3">Manage your:</h3>
-              </div>
-
-              <div class="card-content d-flex justify-content-around">
-                <button
-                  type="button"
-                  class="btn btn-outline-light mt-2 mb-2 p-0 adminBtn"
-                  data-toggle="modal"
-                  data-target="#comingSoon"
-                >
-                  <img
-                    class="img-fluid functionBtn"
-                    src="assets/TPTeamsBtn-01.png"
-                    alt="Manage Teams Button"
-                  />
-                </button>
-              </div>
-
-              <div class="card-content d-flex justify-content-around">
-                <button
-                  type="button"
-                  class="btn btn-outline-light mt-2 mb-2 p-0 adminBtn"
-                  data-toggle="modal"
-                  data-target="#comingSoon"
-                >
-                  <img
-                    class="img-fluid functionBtn"
-                    src="assets/TPProfileBtn-01.png"
-                    alt="Manage Profile Button"
-                  />
-                </button>
-              </div>
-
-              <div class="card-content d-flex justify-content-around dropdown">
-                <button
-                  class="btn btn-outline-light mt-2 mb-2 p-0 adminBtn"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="modal"
-                  data-target="#comingSoon"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <img
-                    class="img-fluid functionBtn"
-                    src="assets/TPTags-01.png"
-                    alt="Tags Dropdown Button"
-                  />
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Project Bitman</a>
-                  <a class="dropdown-item" href="#">Admin</a>
-                  <a class="dropdown-item" href="#">Create New</a>
-                </div>
-              </div>
-            </div>
-          </div> <!--Close Admin Card Body-->
-        </div> <!--Close Admin Card -->
-      </div> <!--Close Admin Panel Container-->
-
-
-      <div class="container" id="planner_panel">
-        <!-- TASK 7 Step 2: Add id ("taskCards") to list of tasks so it can be selected   -->
-        <div
-          id="taskCards"
-          class="list-group d-flex justify-content-center flex-wrap flex-md-row"
-        >
-          <!-- <div class="list-group-item card card_layout">
-            <div class="header bg-info pt-2 mb-0">Admin</div>
-            <div class="card-body bg-info card_title">
-              <h5 class="card-title">Book welcome lunch for JWD</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item card_description">
-                Call Julio's to book lunch for 6 people at 12pm on 31 October
-                2010.
-              </li>
-              <li class="list-group-item">
-                <strong>Assigned to</strong>: Monali
-              </li>
-              <li class="list-group-item">
-                <strong>Due date</strong>: 15 October 2020
-              </li>
-              <li class="list-group-item"><strong>Status</strong>: TO DO</li>
-            </ul>
-            <div class="card-body d-flex justify-content-around">
-              <a href="#" class="card-link"
-                ><span class="far fa-check-square"></span
-              ></a>
-              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-              <a href="#" class="card-link"
-                ><span class="fas fa-trash"></span
-              ></a>
-            </div>
-          </div> -->
-          <!-- <div class="list-group-item card card_layout">
-            <div class="header bg-warning pt-2 mb-0">Project Bitman</div>
-            <div class="card-body bg-warning card_title">
-              <h5 class="card-title">
-                Implement HTML structure for task planner app
-              </h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item card_description">
-                Create index.html to implement main app elements from wireframe.
-              </li>
-              <li class="list-group-item">
-                <strong>Assigned to</strong>: Shane
-              </li>
-              <li class="list-group-item">
-                <strong>Due date</strong>: 1 September 2020
-              </li>
-              <li class="list-group-item"><strong>Status</strong>: Done</li>
-            </ul>
-            <div class="card-body d-flex justify-content-around">
-              <a href="#" class="card-link"
-                ><span class="far fa-check-square"></span
-              ></a>
-              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-              <a href="#" class="card-link"
-                ><span class="fas fa-trash"></span
-              ></a>
-            </div>
-          </div> -->
-          <!-- <div class="list-group-item card card_layout">
-            <div class="header bg-warning pt-2 mb-0">Project Bitman</div>
-            <div class="card-body bg-warning card_title">
-              <h5 class="card-title">Style index.html</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item card_description">
-                Create styles.css and incorporate Bootstrap components to html
-                to reflect wireframe.
-              </li>
-              <li class="list-group-item">
-                <strong>Assigned to</strong>: Monali, Shane, Jen
-              </li>
-              <li class="list-group-item">
-                <strong>Due date</strong>: 1 September 2020
-              </li>
-              <li class="list-group-item">
-                <strong>Status</strong>: In progress
-              </li>
-            </ul>
-            <div class="card-body d-flex justify-content-around">
-              <a href="#" class="card-link"
-                ><span class="far fa-check-square"></span
-              ></a>
-              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-              <a href="#" class="card-link"
-                ><span class="fas fa-trash"></span
-              ></a>
-            </div>
-          </div> -->
-          <!-- <div class="list-group-item card card_layout">
-            <div class="header bg-danger pt-2 mb-0">Project Robin</div>
-            <div class="card-body bg-danger card_title">
-              <h5 class="card-title">
-                Write "About us" section for company website
-              </h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item card_description">
-                Write new "About us" section. Include: company's mission, team
-                member profiles and social media links.
-              </li>
-              <li class="list-group-item">
-                <strong>Assigned to</strong>: New JWD
-              </li>
-              <li class="list-group-item">
-                <strong>Due date</strong>: 15 September 2020
-              </li>
-              <li class="list-group-item"><strong>Status</strong>: TO DO</li>
-            </ul>
-            <div class="card-body d-flex justify-content-around">
-              <a href="#" class="card-link"
-                ><span class="far fa-check-square"></span
-              ></a>
-              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-              <a href="#" class="card-link"
-                ><span class="fas fa-trash"></span
-              ></a>
-            </div>
-          </div> -->
-          <!-- <div class="list-group-item card card_layout">
-            <div class="header bg-danger pt-2 mb-0">Project Robin</div>
-            <div class="card-body bg-danger card_title">
-              <h5 class="card-title">Update company website navbar</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item card_description">
-                Add extra navbar link to new "About us" section.
-              </li>
-              <li class="list-group-item">
-                <strong>Assigned to</strong>: New JWD
-              </li>
-              <li class="list-group-item">
-                <strong>Due date</strong>: 15 September 2020
-              </li>
-              <li class="list-group-item"><strong>Status</strong>: TO DO</li>
-            </ul>
-            <div class="card-body d-flex justify-content-around">
-              <a href="#" class="card-link"
-                ><span class="far fa-check-square"></span
-              ></a>
-              <a href="#" class="card-link"><span class="fas fa-pen"></span></a>
-              <a href="#" class="card-link"
-                ><span class="fas fa-trash"></span
-              ></a>
-            </div> -->
-          <!-- </div> -->
-        </div> <!--Closes TaskCards Div--> 
-
-        <!--Keep The Modals on A Top Layer - i.e. the Planner Panel -->
-
-        <!-- Modal Code-->
-
-        <div id="modalAddTask" class="modal" role="dialog">
-          <div class="row">
-            <div class="container-fluid d-flex">
-              <div class="col-md-4">
-                <div class="card">
-
-                  <div class="card-header addNew">
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                        <h3>Add New Task</h3>
-                  </div>
-                 
-                      <div class="card-body">
-                          <div class="card-content addNewCont">
-                             <form id="validateAddNewTaskForm" novalidation>
-                                <div class="form-group">
-
-
-                                      <div class="form m-2">
-                                        <label for="addTaskName">Task Name: </label>
-                                            <input
-                                              id="addNewTaskName"
-                                              type="text"
-                                              class="form-control"
-                                              id="addTaskName"
-                                              placeholder="enter the task name"
-                                            />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                  <div class="invalid-feedback">
-                                                      Required and needs to be at least 8 characters
-                                                      long
-                                                   </div>
-                                      </div>
-
-                                        <div class="form m-2">
-                                           <label for="addTaskDescription"
-                                            >Description:
-                                           </label>
-                                             <textarea
-                                                id="addTaskDescription"
-                                                placeholder="Description"
-                                                class="form-control"
-                                                  ></textarea>
-                                                  <div class="valid-feedback">Looks good!</div>
-                                                    <div class="invalid-feedback">
-                                                        Required and needs to be at least 15 characters
-                                                        long
-                                                    </div>
-                                        </div>
-
-                                        <!--Assign To  -->
-                                        
-                                        <div class="form m-2">
-                                            <label for="addTaskAssignTo">Assign To: </label>
-                                              <input
-                                                id="addTaskAssignTo"
-                                                type="text"
-                                                placeholder="Assign To"
-                                                class="form-control"
-                                              />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                  <div class="invalid-feedback">
+                    <div class="card-body">
+                        <div class="card-content addNewCont">
+                            <form id="validateAddNewTaskForm" novalidation>
+                              <div class="form-group">
+                                    <div class="form m-2">
+                                      <label for="addTaskName">Task Name: </label>
+                                          <input
+                                            id="addNewTaskName"
+                                            type="text"
+                                            class="form-control"
+                                            id="addTaskName"
+                                            placeholder="enter the task name"
+                                          />
+                                              <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">
                                                     Required and needs to be at least 8 characters
                                                     long
                                                   </div>
-                                        </div>
-
-                                        <!--Due Date-->
-
-                                        <div class="form-inline m-2">
-                                            <label for="addDueDate">Due Date: </label>
-                                              <input
-                                                type="date"
-                                                class="form-control"
-                                                id="addTaskDueDate"
-                                              />
-                                          <div class="valid-feedback">Looks good!</div>
-                                          <div class="invalid-feedback">
-                                            Required and should be today or a future date
-                                          </div>
-                                        </div>
-
-                                        <!--Task Status-->
-
-                                        <div class="form-inline m-2">
-                                          <label for="addTaskStatus">Status: </label>
-                                            <select
-                                              id="addStatus"
+                                    </div>
+                                      <div class="form m-2">
+                                          <label for="addTaskDescription"
+                                          >Description:
+                                          </label>
+                                            <textarea
+                                              id="addTaskDescription"
+                                              placeholder="Description"
                                               class="form-control"
-                                              required
-                                             >
-                                              <option class="select">To Do</option>
-                                              <option>In Progress</option>
-                                              <option>For Review</option>
-                                              <option>Done</option>
-                                            </select>
-                                                  <!-- <button
-                                                class="btn btn-secondary dropdown-toggle"
-                                                type="button"
-                                                id="addTaskStatus"
-                                                data-toggle="dropdown"
-                                                aria-haspupup="true"
-                                                aria-expanded="false"
-                                              >
-                                                Update
-                                              </button> -->
-                                            <div
-                                              class="dropdown-menu"
-                                              aria-labelledby="addTaskStatus"
-                                            >
-                                              <a class="dropdown-item" href="#">To Do</a>
-                                              <a class="dropdown-item" href="#">In Progress</a>
-                                              <a class="dropdown-item" href="#">For Review</a>
-                                              <a class="dropdown-item" href="#">Done</a>
-                                            </div>
+                                                ></textarea>
+                                                <div class="valid-feedback">Looks good!</div>
+                                                  <div class="invalid-feedback">
+                                                      Required and needs to be at least 15 characters
+                                                      long
+                                                  </div>
+                                      </div>
+                                      <!--Assign To  -->  
+                                      <div class="form m-2">
+                                          <label for="addTaskAssignTo">Assign To: </label>
+                                            <input
+                                              id="addTaskAssignTo"
+                                              type="text"
+                                              placeholder="Assign To"
+                                              class="form-control"
+                                            />
+                                              <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">
+                                                  Required and needs to be at least 8 characters
+                                                  long
+                                                </div>
+                                      </div>
+                                      <!--Due Date-->
+                                      <div class="form-inline m-2">
+                                          <label for="addDueDate">Due Date: </label>
+                                            <input
+                                              type="date"
+                                              class="form-control"
+                                              id="addTaskDueDate"
+                                            />
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">
+                                          Required and should be today or a future date
                                         </div>
-                                
-                                 </div> <!--Closes Form Group-->
-                     
-                   
-
-                                          <div class="card-footer m-2 justify-content-center addNewFtr">
-                                              <button type="submit" class="btn btn-success w-20 m-2">
-                                                  Add Task
-                                              </button>
-                                              <button
-                                                type="button"
-                                                id="exitTaskForm"
-                                                class="btn btn-danger w-20 m-2"
-                                                data-dismiss="modal"
-                                              >
-                                                Exit
-                                              </button>
+                                      </div>
+                                      <!--Task Status-->
+                                      <div class="form-inline m-2">
+                                        <label for="addTaskStatus">Status: </label>
+                                          <select
+                                            id="addStatus"
+                                            class="form-control"
+                                            required
+                                            >
+                                            <option class="select">To Do</option>
+                                            <option>In Progress</option>
+                                            <option>For Review</option>
+                                            <option>Done</option>
+                                          </select>
+                                                <!-- <button
+                                              class="btn btn-secondary dropdown-toggle"
+                                              type="button"
+                                              id="addTaskStatus"
+                                              data-toggle="dropdown"
+                                              aria-haspupup="true"
+                                              aria-expanded="false"
+                                            >
+                                              Update
+                                            </button> -->
+                                          <div
+                                            class="dropdown-menu"
+                                            aria-labelledby="addTaskStatus"
+                                          >
+                                            <a class="dropdown-item" href="#">To Do</a>
+                                            <a class="dropdown-item" href="#">In Progress</a>
+                                            <a class="dropdown-item" href="#">For Review</a>
+                                            <a class="dropdown-item" href="#">Done</a>
                                           </div>
-                              </form> <!--Closes Form-->
-                           </div> <!--Closes Card Content-->
-                        </div> <!--Closes Card Body-->
-                </div> <!--Closes Card-->
-              </div> <!--Closes ColMD4 Class-->
-             </div> <!--Closes Container Class-->
-           </div> <!--Closes Row Class-->
-         </div> <!--Closes Add New Task Modal-->
-
-
-        <!-- Functionality Coming soon message modal-->
-
-        <div class="modal" id="comingSoon">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Be patient!</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>That functionality is coming soon.</p>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
+                                      </div> 
+                                </div> <!--Closes Form Group-->
+                                        <div class="card-footer m-2 justify-content-center addNewFtr">
+                                            <button type="submit" class="btn btn-success w-20 m-2">
+                                                Add Task
+                                            </button>
+                                            <button
+                                              type="button"
+                                              id="exitTaskForm"
+                                              class="btn btn-danger w-20 m-2"
+                                              data-dismiss="modal"
+                                            >
+                                              Exit
+                                            </button>
+                                        </div>
+                            </form> <!--Closes Form-->
+                          </div> <!--Closes Card Content-->
+                      </div> <!--Closes Card Body-->
+              </div> <!--Closes Card-->
+            </div> <!--Closes ColMD4 Class-->
+            </div> <!--Closes Container Class-->
+          </div> <!--Closes Row Class-->
+        </div> <!--Closes Add New Task Modal-->
+      <!-- Functionality Coming soon message modal-->
+      <div class="modal" id="comingSoon">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Be patient!</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>That functionality is coming soon.</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
-        </div> <!--Closes Coming Soon Functionality Modal-->
-
-
-    
-    </div> <!--Closes Planner Container-->
-  </div> <!--Closes First Container-->
+        </div>
+      </div> <!--Closes Coming Soon Functionality Modal-->
+      <!-- Task cards get rendered here -->
+      <div
+        id="taskCards"
+        class="d-flex justify-content-center flex-wrap flex-md-row"
+      >
+      </div>
+      <div id="tasks" class="container">
+        <div class="row">
+          <div class="col-sm-3 card-group d-flex flex-column py-2" id="tasks-to-do">
+            <h3>To do</h3>
+            <div class="task-cards-container d-flex flex-column">
+              <!-- To do tasks get rendered here -->
+            </div>
+          </div>
+          <div class="col-sm-3 card-group d-flex flex-column py-2" id="tasks-in-progress">
+            <h3>In progress</h3>
+            <div class="task-cards-container d-flex flex-column">
+              <!-- In progress tasks get rendered here -->
+            </div>
+          </div>
+          <div class="col-sm-3 card-group d-flex flex-column py-2" id="tasks-for-review">
+            <h3>For review</h3>
+            <div class="task-cards-container d-flex flex-column">
+              <!-- For review tasks get rendered here -->
+            </div>
+          </div>
+          <div class="col-sm-3 card-group d-flex flex-column py-2" id="tasks-done">
+            <h3>Done</h3>
+            <div class="task-cards-container d-flex flex-column">
+              <!-- Done tasks get rendered here -->
+            </div>
+          </div>
+        </div>
+      </div> 
+    </main> 
+    <footer>&copy;2020 JESMO Pty Ltd</footer>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
     ></script>
-
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-
-    <script src="js/taskManager.js"></script>
-    <script src="js/validate.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/validate.js"></script>
   </body>
-  <footer>&copy;2020 JeMo Pty. Ltd. All Rights Reserved</footer>
 </html>
