@@ -87,6 +87,11 @@ main h3 {
   background-color: #4D8B31;
 }
 
+.task-cards-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .card-group h3 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -95,7 +100,6 @@ main h3 {
 }
 
 .card {
-  width: 90%;
 }
 
 .card-title {
