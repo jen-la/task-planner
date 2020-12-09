@@ -121,7 +121,7 @@ describe('TaskManager', () => {
 
                 taskManager.render();
 
-                expect(tasksList.innerHTML).toContain('<div class="list-group-item card card_layout" data-task-id=0>');
+                expect(tasksList.innerHTML).toContain('<div class="card" data-task-id=0>');
                 expect(tasksList.innerHTML).toContain('<strong>To Do</strong>');
                 expect(tasksList.innerHTML).toContain('<h5 class="card-title">test</h5>');
                 expect(tasksList.innerHTML).toContain('<li class="list-group-item"><strong>Assigned to</strong>: test</li>');
@@ -129,7 +129,7 @@ describe('TaskManager', () => {
                 expect(tasksList.innerHTML).toContain('<li class="list-group-item card_description">test</li>'); 
                 expect(tasksList.innerHTML).toContain('<button class="btn btn-outline-success done-button visible far fa-check-square"></button>');
                 expect(tasksList.innerHTML).toContain('<button class="btn btn-outline-warning edit-button fas fa-pen"></button>');
-                expect(tasksList.innerHTML).toContain('<button class="btn btn-outline-danger delete-button fas fa-trash"></button>');
+                expect(tasksList.innerHTML).toContain('<button class="btn btn-outline-danger delete-button fas fa-trash"></button>');  
             });
         });
     });
