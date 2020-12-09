@@ -1,10 +1,10 @@
 // form validation
 const validateTaskForm = document.querySelector("#validateAddNewTaskForm"); 
-const addNewTaskNameText = document.getElementById("addNewTaskName"); 
+const addNewTaskNameText = document.getElementById("addTaskName"); 
 const addDescriptionTextarea = document.getElementById("addTaskDescription"); 
 const addAssignToText = document.getElementById("addTaskAssignTo"); 
 const addDueDate = document.getElementById("addTaskDueDate");
-const addStatusSelectList = document.querySelector("#addStatus");
+const addStatusSelectList = document.querySelector("#addTaskStatus");
 
 validateTaskForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -18,7 +18,6 @@ validateTaskForm.addEventListener("submit", (event) => {
   }
 
   if (addDescriptionTextarea.value.length > 10) {
-    //covers Not Empty and longer than 15 characters
     addDescriptionTextarea.classList.add("is-valid");
     addDescriptionTextarea.classList.remove("is-invalid");
   } else {

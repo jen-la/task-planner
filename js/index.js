@@ -18,7 +18,6 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
       </div>    
     </div>
     `;
-    // deleted header: <div class="header ${ status === "To Do" ? "bg-danger" : status === "In Progress" ? "bg-warning" : status === "For Review" ? "bg-info" : "bg-success" }"><strong>${status}</strong></div>
   return html;
 };
 

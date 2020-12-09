@@ -1,4 +1,4 @@
-/* Color palette 
+/* Color scheme 
 #dfffe2 - nav/footer green
 #3F4A41 - olive green
 #F2CAC5 - pink */
@@ -25,13 +25,12 @@ main {
   height: auto;
 }
 
-/* Navbar */
 #navbar {
   background-color: #dfffe2 !important;
   box-shadow: 0 5px 10px -10px #3F4A41;
 }
 
-/* Date and add tasks/view/filter buttons */
+/* Date and add task button section */
 #calendarDetails h1,
 main h3 {
   color: #3F4A41; 
@@ -46,8 +45,6 @@ main h3 {
 }
 
 #add-task-btn {
-  /* background-color: #3F4A41; */
-  /* color: white; */
   background-color: #F2CAC5;
   font-size: 1.5rem;
   font-weight: 600;
@@ -63,6 +60,41 @@ main h3 {
   text-decoration: underline;
   min-width: 200px;
 }
+
+/* Add task modal */
+.modal-header {
+  background-color: #F2CAC5 !important;
+}
+
+.modal-header span {
+  font-size: 2rem;
+}
+
+.modal-title {
+  color: black !important;
+  font-size: 2rem;
+}
+
+.form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group>label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.form-group>input, 
+.form-group>textarea,
+.form-group>select {
+  font-size: 1.2rem;
+} 
 
 /* Task cards section */
 #tasks-to-do {
@@ -99,9 +131,6 @@ main h3 {
   margin: 2vh 0;
 }
 
-.card {
-}
-
 .card-title {
   font-weight: bold;
   text-transform: capitalize;
@@ -109,73 +138,10 @@ main h3 {
 
 .card_description {
   font-style: italic;
-  /* height: 7rem; */
 }
 
 .list-group-flush {
   text-align: left;
-}
-
-/* Add task modal */
-.modal {
-  position: absolute;
-  float: left;
-  left: 30%;
-  top: 20%;
-}
-
-.form {
-  text-align: left;
-}
-
-.form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-
-.addNew h3 {
-  font-weight: 400;
-  font-style: normal;
-}
-
-.addNewHdr {
-  background-color: #c2e4f9;
-}
-
-form {
-  font-weight: 400;
-  font-style: normal;
- }
-
-.form textarea {
-  font-size: 1.25em;
-} 
-
-.form input {
-  font-size: 1.25em;
-}
-
-.modal-header {
-  background-color: #fefad2;
-}
-
-.modal-title {
-  font-weight: 400;
-  font-style: normal;
-  color:#e8dfb5;
-  font-size: 36px;
-}
-
-.modal-body {
-  font-weight: 400;
-  font-style: normal;
-  color: slategray;
-  font-size: 36px;
-}
-
-.modal-footer {
-  background-color: #fefad2;
 }
 
 /* Footer */

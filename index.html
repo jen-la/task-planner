@@ -47,7 +47,7 @@
     </header>
 
     <main class="container-fluid">
-      <!--Today heading, buttons and date -->
+      <!-- Date and add task button section -->
       <div id="calendarDetails" class="d-flex justify-content-center mb-3">
         <button class="btn"><span class="fas fa-backward fa-2x mx-sm-5"></span></button> 
         <h1>Today</h1>
@@ -72,170 +72,81 @@
         <button type="button" class="btn px-3 py-1 mx-sm-2">View all</button>
         <button type="button" class="btn px-3 py-1 mx-sm-2">Filter by...</button>
       </div> 
-      <!-- Add task modal form-->
-      <div id="modalAddTask" class="modal" role="dialog">
-        <div class="row">
-          <div class="container-fluid d-flex">
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header addNew">
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                      <h3>Add New Task</h3>
-                </div>
-                    <div class="card-body">
-                        <div class="card-content addNewCont">
-                            <form id="validateAddNewTaskForm" novalidation>
-                              <div class="form-group">
-                                    <div class="form m-2">
-                                      <label for="addTaskName">Task Name: </label>
-                                          <input
-                                            id="addNewTaskName"
-                                            type="text"
-                                            class="form-control"
-                                            id="addTaskName"
-                                            placeholder="enter the task name"
-                                          />
-                                              <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">
-                                                    Required and needs to be at least 8 characters
-                                                    long
-                                                  </div>
-                                    </div>
-                                      <div class="form m-2">
-                                          <label for="addTaskDescription"
-                                          >Description:
-                                          </label>
-                                            <textarea
-                                              id="addTaskDescription"
-                                              placeholder="Description"
-                                              class="form-control"
-                                                ></textarea>
-                                                <div class="valid-feedback">Looks good!</div>
-                                                  <div class="invalid-feedback">
-                                                      Required and needs to be at least 15 characters
-                                                      long
-                                                  </div>
-                                      </div>
-                                      <!--Assign To  -->  
-                                      <div class="form m-2">
-                                          <label for="addTaskAssignTo">Assign To: </label>
-                                            <input
-                                              id="addTaskAssignTo"
-                                              type="text"
-                                              placeholder="Assign To"
-                                              class="form-control"
-                                            />
-                                              <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">
-                                                  Required and needs to be at least 8 characters
-                                                  long
-                                                </div>
-                                      </div>
-                                      <!--Due Date-->
-                                      <div class="form-inline m-2">
-                                          <label for="addDueDate">Due Date: </label>
-                                            <input
-                                              type="date"
-                                              class="form-control"
-                                              id="addTaskDueDate"
-                                            />
-                                        <div class="valid-feedback">Looks good!</div>
-                                        <div class="invalid-feedback">
-                                          Required and should be today or a future date
-                                        </div>
-                                      </div>
-                                      <!--Task Status-->
-                                      <div class="form-inline m-2">
-                                        <label for="addTaskStatus">Status: </label>
-                                          <select
-                                            id="addStatus"
-                                            class="form-control"
-                                            required
-                                            >
-                                            <option class="select">To Do</option>
-                                            <option>In Progress</option>
-                                            <option>For Review</option>
-                                            <option>Done</option>
-                                          </select>
-                                                <!-- <button
-                                              class="btn btn-secondary dropdown-toggle"
-                                              type="button"
-                                              id="addTaskStatus"
-                                              data-toggle="dropdown"
-                                              aria-haspupup="true"
-                                              aria-expanded="false"
-                                            >
-                                              Update
-                                            </button> -->
-                                          <div
-                                            class="dropdown-menu"
-                                            aria-labelledby="addTaskStatus"
-                                          >
-                                            <a class="dropdown-item" href="#">To Do</a>
-                                            <a class="dropdown-item" href="#">In Progress</a>
-                                            <a class="dropdown-item" href="#">For Review</a>
-                                            <a class="dropdown-item" href="#">Done</a>
-                                          </div>
-                                      </div> 
-                                </div> <!--Closes Form Group-->
-                                        <div class="card-footer m-2 justify-content-center addNewFtr">
-                                            <button type="submit" class="btn btn-success w-20 m-2">
-                                                Add Task
-                                            </button>
-                                            <button
-                                              type="button"
-                                              id="exitTaskForm"
-                                              class="btn btn-danger w-20 m-2"
-                                              data-dismiss="modal"
-                                            >
-                                              Exit
-                                            </button>
-                                        </div>
-                            </form> <!--Closes Form-->
-                          </div> <!--Closes Card Content-->
-                      </div> <!--Closes Card Body-->
-              </div> <!--Closes Card-->
-            </div> <!--Closes ColMD4 Class-->
-            </div> <!--Closes Container Class-->
-          </div> <!--Closes Row Class-->
-        </div> <!--Closes Add New Task Modal-->
-      <!-- Functionality Coming soon message modal-->
-      <div class="modal" id="comingSoon">
-        <div class="modal-dialog">
+      <!-- Add task modal -->
+      <div id="modalAddTask" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Be patient!</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
+              <h5 class="modal-title" id="addTaskModalTitle">Add task</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p>That functionality is coming soon.</p>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
+              <form id="validateAddNewTaskForm" novalidation>
+                <div class="form-group">
+                  <label for="addTaskName">Task Name: </label>
+                  <input
+                    id="addTaskName"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter task name"
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Must be at least 8 characters</div>
+                </div>
+                <div class="form-group">
+                  <label for="addTaskDescription">Description: </label>
+                  <textarea
+                    id="addTaskDescription"
+                    class="form-control"
+                    placeholder="Enter task description"
+                    rows="3"
+                  ></textarea>
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Must be at least 10 characters</div>
+                </div>
+                <div class="form-group">
+                  <label for="addTaskAssignTo">Assign To: </label>
+                  <input
+                    id="addTaskAssignTo"
+                    type="text"
+                    placeholder="Assign to"
+                    class="form-control"
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Must be at least 3 characters</div>
+                </div>
+                <div class="form-group form-inline">
+                  <label for="addTaskDueDate">Due Date: </label>
+                  <input
+                    id="addTaskDueDate"
+                    type="date"
+                    class="form-control"
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Must be today or a future date</div>
+                </div>
+                <div class="form-group form-inline">
+                  <label for="addTaskStatus">Status: </label>
+                  <select
+                    id="addTaskStatus"
+                    class="form-control"
+                    required
+                    >
+                    <option class="select">To Do</option>
+                    <option>In Progress</option>
+                    <option>For Review</option>
+                    <option>Done</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg mr-5">Add task</button>
+                <button id="exitTaskForm" type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Close</button> 
             </div>
           </div>
         </div>
-      </div> <!--Closes Coming Soon Functionality Modal-->
+      </div>
+      <!-- Task cards section -->
       <div id="tasks" class="container">
         <div class="row">
           <div class="col-sm-3 card-group d-flex flex-column py-2" id="tasks-to-do">
